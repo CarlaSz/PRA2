@@ -241,17 +241,17 @@ import androidx.room.PrimaryKey;
  melhor, 'AGENDARIO' (agenda+diário).
  https://developer.android.com/training/data-storage/room/defining-data
  */
-@Entity(tableName = "museums")
+@Entity(tableName = "movies")
 
 
 /**
- classe 'Museum'
- Representa a estrutura de dados da entidade/tabela MUSEU. As colunas (campos da tabela)
- ID, NAME, STYLE, SCORE e CREATIONDATE serão criadas como membros privados da classe. As
+ classe 'Movies'
+ Representa a estrutura de dados da entidade/tabela FILMES. As colunas (campos da tabela)
+ ID, TITLE, STRIKINGSCENE, SCORE e CREATIONDATE serão criadas como membros privados da classe. As
  restricões de cada coluna serão informadas com o uso da anotação '@' de acordo com o
  tipo correspondente.
  */
-public class Museum {
+public class Movie {
 
     /**
      Colunas, restrições e construtor da classe
@@ -272,8 +272,8 @@ public class Museum {
      partir dos (m)embros da classe.
      Escreva a lista de membros utilizando o modificador de acesso privado:
      private int mId;
-     private String mName;
-     private String mStyle;
+     private String mTitle;
+     private String mStrikingScene;
      private int mScore;
      private String mCreationDate;
         Ao definir os membros como privativos da classe estamos definindo a capacidade
@@ -307,10 +307,10 @@ public class Museum {
      fazer isso aqui nesta classe vai te poupar alguns detalhes de programção e
      manutenção do código mais a frente em função destas regras estarem definidas aqui.
      Veja o exemplo:
-     public void setName(String name) {
-        mName = name.toUpperCase().trim();
+     public void setTitle(String title) {
+        mTitle = title.toUpperCase().trim();
      }
-     Clique com o botão direito do mouse sobre o nome da classe 'Museum' e escolha
+     Clique com o botão direito do mouse sobre o nome da classe 'Movies' e escolha
      a opção GENERATE... e depois CONSTRUCTOR
      Na janela que será apresentada selecione os membros que farão parte do construtor
      da classe com o uso de CTRL+clique e depois confirme no botão OK. O construtor é
@@ -323,18 +323,18 @@ public class Museum {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    @ColumnInfo(name = "museumId")
+    @ColumnInfo(name = "movieId")
     private int mId;
 
     @Nullable
-    @ColumnInfo(name = "museumName")
-    private String mName;
+    @ColumnInfo(name = "movieTitle")
+    private String mTitle;
 
-    private String mStyle;
+    private String mStrikingScene;
 
-    public Museum(@Nullable String name, String style, int score, String creationDate) {
-        mName = name;
-        mStyle = style;
+    public Movie(@Nullable String title, String strikingScene, int score, String creationDate) {
+        mTitle = title;
+        mStrikngScene = strikingScene;
         mScore = score;
         mCreationDate = creationDate;
     }
@@ -347,20 +347,20 @@ public class Museum {
         mId = id;
     }
 
-    public String getName() {
-        return mName;
+    public String getTitle() {
+        return mTitle;
     }
 
-    public void setName(String name) {
-        mName = name;
+    public void setTitle(String title) {
+        mTitle = title;
     }
 
-    public String getStyle() {
-        return mStyle;
+    public String getStrikingScene() {
+        return mStrikingScene;
     }
 
-    public void setStyle(String style) {
-        mStyle = style;
+    public void setStrikingScene(String strikingScene) {
+        mStrikingScene = strikingScene;
     }
 
     public int getScore() {
